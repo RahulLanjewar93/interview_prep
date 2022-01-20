@@ -107,6 +107,21 @@ class LinkedList{
         return node
     }
 
+    reverseKnodes(head,k){
+        let current = head
+        let previous=null
+        let iterator = 0;
+        while(current && iterator<k){
+                let temp = current.next
+                current.next=previous
+                previous=current
+                current=temp
+                iterator++
+        }
+        if(current!=null){
+            this.reverseKnodes(current,k)
+        }
+    }
     printList(){
         let current = this.head
         let fullList = []
@@ -125,8 +140,5 @@ list.addElement(34)
 list.addElement(52)
 list.addElement(6)
 list.addElement(19)
-list.printList()
-list.reverse()
-list.printList()
-list.reverseRecursive(list.head)
+list.reverseKnodes(list.head,3)
 list.printList()
