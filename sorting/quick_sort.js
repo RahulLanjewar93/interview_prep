@@ -1,38 +1,17 @@
-// [5,3,7,6,2,9]
-
-// PIVOT = 7
-//
-Array.prototype.swap = function(a,b){
-    let temp = this[a]
-    this[a]=this[b]
-    this[b]=temp
-
-    return this
-}
-const partition = (arr,left,right)=>{
-    console.log({arr,left,right})
-    let pivot = arr[Math.floor((left+right)/2)]
-    console.log('pivot is ',pivot)
-    while(left <= right){
-    console.log('iinene while')
-        while(arr[left] < pivot ) left++
-        while (arr[right] > pivot ) right--
-        if(left <= right){
-            arr.swap(left,right)
-            left++
-            right--
-        }
+const quickSort = (arr)=>{
+    if(arr.length <= 1) return arr
+    const pivot = arr[Math.floor(Math.random()*arr.length)]
+    const left = []
+    const right = []
+    const equal = []
+    for(val of arr){
+        if(val < pivot) left.push(val)
+        else if(val > pivot) right.push(val)
+        else equal.push(val)
     }
-    return left
+
+    return [...quickSort(left),...equal,...quickSort(right)]
+
 }
 
-const quickSort = (arr,left,right)=>{
-    if(arr.length == 1) return arr
-    let index = partition(arr,left,right)
-    quickSort(arr,left,index)
-    quickSort(arr,index+1,right)
-    return arr
-}
-
-
-console.log(quickSort([5,3,7,6,2,9],0,6))
+console.log(quickSort([5,3,7,6,2,9]))

@@ -10,7 +10,7 @@ const activityScheduling = (startArr,endArr)=>{
     activityArr.sort((a,b)=>a[1]-b[1])
 
 
-    // An axuilary array to keep track of done activities
+    // An axuilary array to keep track of done activiti  B es by default select first activity becuase it has the lowest end time
     let activitiesDone = [activityArr[0]]
 
     // Go through every activity and push if feasible

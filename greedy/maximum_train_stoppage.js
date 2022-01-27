@@ -1,0 +1,1 @@
+console.log(maximumTrainStoppage([10, 10.10, 10.00, 10.3, 12.00, 09.00], [10.30, 10.30], []))

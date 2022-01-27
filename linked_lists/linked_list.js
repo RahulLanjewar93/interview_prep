@@ -34,7 +34,7 @@ class LinkedList{
         //Default check for invalid locations of the nodes
         if(location < 0 || location > this.size) console.log("Not a valid location to add the node")
 
-        // Adding at first position then point HEAD to the new NODE
+        // Adding at fisrt position then point HEAD to the new NODE
         else if(location == 0){
             let tempNode = this.head
             this.head = node
